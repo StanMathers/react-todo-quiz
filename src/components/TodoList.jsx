@@ -1,7 +1,7 @@
 import React from "react";
 import Detective from "./Detective";
 
-const TodoList = ({ todoList }) => {
+const TodoList = ({ todoList, onComplete }) => {
 	if (todoList.length === 0) {
 		return <Detective />;
 	}
@@ -12,7 +12,14 @@ const TodoList = ({ todoList }) => {
 				<li className="list-group-item mb-3" key={todo.id}>
 					<div className="d-flex justify-content-between align-items-center">
 						<div className="d-flex gap-3">
-							<input type="checkbox" className="form-check-input" />
+							<input
+								type="checkbox"
+								className="form-check-input"
+								onClick={() => {
+									onComplete(todo.id);
+								}}
+								defaultChecked={todo.isCompleted}
+							/>
 							{todo.isCompleted ? <del>{todo.title}</del> : todo.title}
 						</div>
 
