@@ -76,6 +76,25 @@ function App() {
 		setTodoList(newTodoList);
 	};
 
+	const handleOnFilter = (value) => {
+		const oldTodoList = JSON.parse(localStorage.getItem("todolist"));
+		setTodoList(oldTodoList);
+		if (value === "all") {
+			setTodoList(oldTodoList);
+			return;
+		} else if (value === "completed") {
+			const newTodoList = oldTodoList.filter(
+				(todo) => todo.isCompleted === true
+			);
+			setTodoList(newTodoList);
+		} else if (value === "incomplete") {
+			const newTodoList = oldTodoList.filter(
+				(todo) => todo.isCompleted === false
+			);
+			setTodoList(newTodoList);
+		}
+	};
+
 	// Check if body background color is --black-primary
 
 	return (
@@ -86,7 +105,7 @@ function App() {
 				<h1 className="black-primary">TODO LIST</h1>
 				<div className="d-flex flex-row gap-3">
 					<Search onSearch={handleOnSearch} />
-					<TodoFilter />
+					<TodoFilter onFilter={handleOnFilter} />
 					<Theme isDark={isDark} onThemeChange={handleOnChangeTheme} />
 				</div>
 				<div className="p-5">

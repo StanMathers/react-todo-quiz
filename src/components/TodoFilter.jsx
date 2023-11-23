@@ -1,6 +1,6 @@
 import React from "react";
 
-const TodoFilter = () => {
+const TodoFilter = ({ onFilter }) => {
 	return (
 		<div className="dropdown-center">
 			<button
@@ -11,19 +11,34 @@ const TodoFilter = () => {
 			>
 				ALL
 			</button>
-			<ul className="dropdown-menu">
+			<ul className="dropdown-menu mouse-pointer">
 				<li>
-					<a className="dropdown-item purple-primary" href="#">
+					<a
+						className="dropdown-item purple-primary"
+						onClick={() => {
+							onFilter("all");
+						}}
+					>
 						All
 					</a>
 				</li>
 				<li>
-					<a className="dropdown-item purple-primary" href="#">
+					<a
+						className="dropdown-item purple-primary"
+						onClick={() => {
+							onFilter("completed");
+						}}
+					>
 						Completed
 					</a>
 				</li>
 				<li>
-					<a className="dropdown-item purple-primary" href="#">
+					<a
+						className="dropdown-item purple-primary"
+						onClick={() => {
+							onFilter("incomplete");
+						}}
+					>
 						Incomplete
 					</a>
 				</li>
