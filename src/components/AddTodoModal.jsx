@@ -1,12 +1,15 @@
 import React from "react";
+import { useRef } from "react";
 
-const AddTodoModal = () => {
+const AddTodoModal = ({ onSave }) => {
+	const noteRef = useRef(null);
+
 	return (
 		<>
 			<div
 				className="modal fade"
 				id="exampleModal"
-				tabindex="-1"
+				tabIndex="-1"
 				aria-labelledby="exampleModalLabel"
 				aria-hidden="true"
 			>
@@ -27,6 +30,7 @@ const AddTodoModal = () => {
 								name="newNote"
 								id="newNote"
 								placeholder="Input your note..."
+								ref={noteRef}
 							/>
 						</div>
 						<div className="mt-5 mb-2 d-flex justify-content-between">
@@ -37,7 +41,11 @@ const AddTodoModal = () => {
 							>
 								Close
 							</button>
-							<button type="button" className="btn btn-purple">
+							<button
+								type="button"
+								className="btn btn-purple"
+								onClick={() => onSave(noteRef.current.value)}
+							>
 								Save changes
 							</button>
 						</div>
