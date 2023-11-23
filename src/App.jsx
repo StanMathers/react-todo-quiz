@@ -66,6 +66,16 @@ function App() {
 		localStorage.setItem("todolist", JSON.stringify(newTodoList));
 	};
 
+	const handleOnSearch = (value) => {
+		if (value === "") {
+			setTodoList(JSON.parse(localStorage.getItem("todolist")));
+			return;
+		}
+
+		const newTodoList = todolist.filter((todo) => todo.title.includes(value));
+		setTodoList(newTodoList);
+	};
+
 	// Check if body background color is --black-primary
 
 	return (
@@ -75,7 +85,7 @@ function App() {
 
 				<h1 className="black-primary">TODO LIST</h1>
 				<div className="d-flex flex-row gap-3">
-					<Search />
+					<Search onSearch={handleOnSearch} />
 					<TodoFilter />
 					<Theme isDark={isDark} onThemeChange={handleOnChangeTheme} />
 				</div>
