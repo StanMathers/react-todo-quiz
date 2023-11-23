@@ -20,6 +20,9 @@ function App() {
 	useEffect(() => {
 		const localData = localStorage.getItem("todolist");
 		setTodoList(localData ? JSON.parse(localData) : []);
+		// Get theme from localStorage
+		const localTheme = localStorage.getItem("isDark");
+		setIsDark(localTheme ? JSON.parse(localTheme) : false);
 	}, []);
 
 	useEffect(() => {
@@ -41,6 +44,8 @@ function App() {
 	const handleOnChangeTheme = () => {
 		console.log("handleOnChangeTheme");
 		setIsDark(!isDark);
+		// Save it to localStorage
+		localStorage.setItem("isDark", JSON.stringify(!isDark));
 	};
 
 	// Handle new todo save
