@@ -1,6 +1,11 @@
 import React from "react";
+import Detective from "./Detective";
 
 const TodoList = ({ todoList }) => {
+	if (todoList.length === 0) {
+		return <Detective />;
+	}
+
 	return (
 		<ul className="list-group">
 			{todoList.map((todo) => (

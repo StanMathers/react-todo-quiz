@@ -15,22 +15,7 @@ function App() {
 	const [isDark, setIsDark] = useState(false);
 	// Data:  todolist = { id: 1, title: "Learn React", isCompleted: false }
 	const [todolist, setTodoList] = useState([
-		{ id: 1, title: "Python blyad", isCompleted: false },
-		{ id: 2, title: "Python asdasd", isCompleted: true },
-		{ id: 3, title: "Python asdasd", isCompleted: true },
-		{ id: 4, title: "Python asdasd", isCompleted: true },
-		{ id: 5, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
-		{ id: 6, title: "Python asdasd", isCompleted: true },
+
 	]);
 
 	const handleOnChangeTheme = () => {
