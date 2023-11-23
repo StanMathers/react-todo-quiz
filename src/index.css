@@ -122,3 +122,7 @@ body {
 
 
 /* Add todo end */
+
+.mouse-pointer {
+	cursor: pointer;
+}

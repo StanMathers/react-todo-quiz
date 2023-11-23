@@ -1,7 +1,7 @@
 import React from "react";
 import Detective from "./Detective";
 
-const TodoList = ({ todoList, onComplete }) => {
+const TodoList = ({ todoList, onComplete, onDelete, onUpdate }) => {
 	if (todoList.length === 0) {
 		return <Detective />;
 	}
@@ -24,8 +24,19 @@ const TodoList = ({ todoList, onComplete }) => {
 						</div>
 
 						<div className="d-flex align-items-center gap-3">
-							<i className="bi bi-trash"></i>
-							<i className="bi bi-pencil"></i>
+							<i
+								className="bi bi-trash mouse-pointer"
+								onClick={() => {
+									onDelete(todo.id);
+								}}
+							></i>
+							<i
+								className="bi bi-pencil mouse-pointer"
+								onClick={() => {
+									const newTitle = prompt("Input new title", todo.title);
+                                    onUpdate(todo.id, newTitle);
+								}}
+							></i>
 						</div>
 					</div>
 				</li>

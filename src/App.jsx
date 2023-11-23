@@ -49,6 +49,23 @@ function App() {
 		localStorage.setItem("todolist", JSON.stringify([...todolist]));
 	};
 
+	const handleOnDelete = (id) => {
+		const newTodoList = todolist.filter((todo) => todo.id !== id);
+		setTodoList(newTodoList);
+		localStorage.setItem("todolist", JSON.stringify(newTodoList));
+	};
+
+	const handleOnUpdate = (id, newTitle) => {
+		const newTodoList = todolist.map((todo) => {
+			if (todo.id === id) {
+				todo.title = newTitle;
+			}
+			return todo;
+		});
+		setTodoList(newTodoList);
+		localStorage.setItem("todolist", JSON.stringify(newTodoList));
+	};
+
 	// Check if body background color is --black-primary
 
 	return (
@@ -63,7 +80,12 @@ function App() {
 					<Theme isDark={isDark} onThemeChange={handleOnChangeTheme} />
 				</div>
 				<div className="p-5">
-					<TodoList todoList={todolist} onComplete={handleOnComplete} />
+					<TodoList
+						todoList={todolist}
+						onComplete={handleOnComplete}
+						onDelete={handleOnDelete}
+						onUpdate={handleOnUpdate}
+					/>
 				</div>
 				<AddTodo />
 			</div>
