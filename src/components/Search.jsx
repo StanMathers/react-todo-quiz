@@ -7,7 +7,7 @@ const Search = ({ onSearch }) => {
 		<div className="input-group">
 			<input
 				type="text"
-				className="form-control no-focus-border search-bar"
+				className="form-control no-focus no-focus-border search-bar"
 				aria-label="Text input with segmented dropdown button"
 				placeholder="Search note..."
 				onChange={(e) => {
@@ -15,7 +15,7 @@ const Search = ({ onSearch }) => {
 					onSearch(e.target.value);
 				}}
 			/>
-			<button type="button" className="btn search-bar-icon">
+			<button type="button" className="btn no-focus-icon search-bar-icon">
 				<i className="bi bi-search"></i>
 			</button>
 		</div>

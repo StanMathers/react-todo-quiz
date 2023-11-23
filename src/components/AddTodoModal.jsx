@@ -14,7 +14,7 @@ const AddTodoModal = ({ onSave }) => {
 				aria-hidden="true"
 			>
 				<div className="modal-dialog">
-					<div className="modal-content px-5">
+					<div className="modal-content px-5" id="modal-contact">
 						<div className="justify-content-center mt-3">
 							<h1
 								className="modal-title fs-5 black-primary"
@@ -39,14 +39,14 @@ const AddTodoModal = ({ onSave }) => {
 								className="btn btn-outline-purple"
 								data-bs-dismiss="modal"
 							>
-								Close
+								CANCEL
 							</button>
 							<button
 								type="button"
 								className="btn btn-purple"
 								onClick={() => onSave(noteRef.current.value)}
 							>
-								Save changes
+								APPLY
 							</button>
 						</div>
 					</div>

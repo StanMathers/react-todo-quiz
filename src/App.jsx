@@ -22,6 +22,21 @@ function App() {
 		setTodoList(localData ? JSON.parse(localData) : []);
 	}, []);
 
+	useEffect(() => {
+		if (isDark) {
+			setDarkMode();
+		} else {
+			setLightMode();
+		}
+	}, [isDark]);
+
+	const setDarkMode = () => {
+		document.querySelector("body").setAttribute("data-theme", "dark");
+	};
+
+	const setLightMode = () => {
+		document.querySelector("body").setAttribute("data-theme", "light");
+	};
 	// Handle theme change state
 	const handleOnChangeTheme = () => {
 		console.log("handleOnChangeTheme");
@@ -103,7 +118,7 @@ function App() {
 				<AddTodoModal onSave={handleOnSave} />
 
 				<h1 className="black-primary">TODO LIST</h1>
-				<div className="d-flex flex-row gap-3">
+				<div className="d-flex flex-column flex-md-row gap-3">
 					<Search onSearch={handleOnSearch} />
 					<TodoFilter onFilter={handleOnFilter} />
 					<Theme isDark={isDark} onThemeChange={handleOnChangeTheme} />
