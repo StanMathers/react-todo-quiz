@@ -1,3 +1,8 @@
+body {
+	background-color: var(--white-primary);
+	font-weight: 500;
+}
+
 :root {
 	--purple-primary: #6C63FF;
 	--white-primary: #F7F7F7;
@@ -17,14 +22,25 @@
 }
 
 /* Search bar */
+
 .search-bar {
 	border: 1px solid var(--purple-primary);
 	border-right: none;
 }
 
+.input-bar {
+	border: 1px solid var(--purple-primary);
+}
+
 /* Search bar */
 
-/* Search bar icon */
+.main {
+	position: relative;
+	min-height: 90vh;
+
+}
+
+/* Search bar icon start */
 .search-bar-icon {
 	border: 1px solid var(--purple-primary);
 	border-left: none;
@@ -47,10 +63,62 @@
 	border-left: none !important;
 }
 
-/* Search bar icon */
+/* Search bar icon end */
 
-.form-control:focus {
+.no-focus-border:focus {
 	border: 1px solid var(--purple-primary) !important;
 	border-right: none !important;
 	box-shadow: none !important;
 }
+
+.no-focus:focus {
+	border: 1px solid var(--purple-primary) !important;
+	box-shadow: none !important;
+
+}
+
+/* Buttons */
+.btn-purple {
+	background-color: var(--purple-primary) !important;
+	border: 1px solid var(--purple-primary);
+	color: var(--white-primary) !important;
+}
+
+.btn-outline-purple {
+	background-color: transparent !important;
+	border: 1px solid var(--purple-primary);
+	color: var(--purple-primary) !important;
+
+}
+
+
+/* List items start */
+
+/* Create purple underline */
+.list-group-item {
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	background-color: transparent !important;
+	border-bottom: 1px solid var(--purple-primary);
+	border-radius: 0;
+}
+
+/* List items end */
+
+/* Add todo start */
+
+.add-todo {
+	position: absolute;
+	bottom: 10%;
+	right: 10%;
+}
+
+.add-todo__btn {
+	border-radius: 50%;
+	color: var(--white-primary);
+}
+
+
+
+/* Add todo end */
